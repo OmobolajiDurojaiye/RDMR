@@ -126,6 +126,138 @@ body {
   font-size: 24px;
 }
 
+/* Media Dropdown Menu Styles */
+.dropdown-container {
+  position: relative;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  background: rgba(26, 26, 26, 0.8);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(90, 170, 236, 0.2);
+  border-radius: 16px;
+  padding: 12px;
+  margin-bottom: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1001;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.dropdown-container:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  bottom: calc(100% + 5px);
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.dropdown-item:last-child {
+  margin-bottom: 0;
+}
+
+.dropdown-item:hover {
+  background: var(--accent-bg);
+  transform: scale(1.05);
+}
+
+.dropdown-icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  transition: all 0.3s ease;
+}
+
+/* Dropdown arrow indicator */
+.dropdown-container .nav-item-content::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid var(--accent-color);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.dropdown-container:hover .nav-item-content::after {
+  opacity: 1;
+}
+
+/* Animation for dropdown */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 10px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.dropdown-container:hover .dropdown-menu {
+  animation: fadeInUp 0.3s ease forwards;
+}
+
+/* Adjust the nav-item for dropdown container */
+.nav-item-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Make sure we maintain the existing nav-item styling */
+.dropdown-container.nav-item:hover {
+  color: var(--accent-color);
+  background: var(--accent-bg);
+  transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .dropdown-menu {
+    width: 130px;
+    padding: 10px;
+  }
+
+  .dropdown-item {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 360px) {
+  .dropdown-menu {
+    width: 110px;
+  }
+
+  .dropdown-item span {
+    display: block;
+    font-size: 0.7rem;
+  }
+}
+
 /* Profile Corner */
 .profile-corner {
   position: fixed;
