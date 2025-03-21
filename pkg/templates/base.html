@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Rēadmire{% endblock %}</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    {% block extra_styles %}{% endblock %}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">{% block content %}{% endblock %}</div>
+
+    <button id="scrollToTop" class="scroll-top-btn">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <a href="/profile" class="profile-corner">
+      <img src="/static/icons/profile.png" class="profile-icon" alt="Profile" />
+    </a>
+    <!-- Bottom Navigation Bar -->
+    <nav class="navbar">
+      <a class="nav-item" href="/feed">
+        <img src="/static/icons/home.png" class="icon" alt="Home" />
+        <span>Home</span>
+      </a>
+      <button class="nav-item" id="categoriesBtn">
+        <img src="/static/icons/categories.png" class="icon" alt="Categories" />
+        <span>Categories</span>
+      </button>
+      <a class="nav-item" href="/media">
+        <img src="/static/icons/media.png" class="icon" alt="Media" />
+        <span>Media</span>
+      </a>
+      <a class="nav-item" href="/chart">
+        <img src="/static/icons/chart.png" class="icon" alt="Chart" />
+        <span>Chart</span>
+      </a>
+      <a class="nav-item" href="/logout">
+        <img src="/static/icons/logout.png" class="icon" alt="Logout" />
+        <span>Logout</span>
+      </a>
+    </nav>
+
+    <!-- Modal (outside the navbar) -->
+    <div id="categoryModal" class="modal">
+      <div class="modal-content">
+        <button class="modal-close">&times;</button>
+        <div class="categories-grid">
+          <a href="/category/technical" class="category-link">
+            <div class="category-box" data-theme="blue">
+              <img
+                src="/static/icons/technical.png"
+                class="category-icon"
+                alt="Technical"
+              />
+              <span>Technical</span>
+            </div>
+          </a>
+          <a href="/category/conservation" class="category-link">
+            <div class="category-box" data-theme="green">
+              <img
+                src="/static/icons/conservation.png"
+                class="category-icon"
+                alt="Conservation"
+              />
+              <span>Conservation</span>
+            </div>
+          </a>
+          <a href="/category/health" class="category-link">
+            <div class="category-box" data-theme="red">
+              <img
+                src="/static/icons/health.png"
+                class="category-icon"
+                alt="Health"
+              />
+              <span>Health</span>
+            </div>
+          </a>
+          <a href="/category/cryptocurrencies" class="category-link">
+            <div class="category-box" data-theme="purple">
+              <img
+                src="/static/icons/crypto.png"
+                class="category-icon"
+                alt="Cryptocurrencies"
+              />
+              <span>Cryptocurrencies</span>
+            </div>
+          </a>
+          <a href="/category/general" class="category-link">
+            <div class="category-box" data-theme="orange">
+              <img
+                src="/static/icons/general.png"
+                class="category-icon"
+                alt="General"
+              />
+              <span>General</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script src="/static/js/base.js"></script>
+  </body>
+</html>

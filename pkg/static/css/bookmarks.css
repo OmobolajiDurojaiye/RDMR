@@ -1,0 +1,407 @@
+:root {
+  --background-color: #0a0a0a;
+  --primary-color: #1a1a1a;
+  --accent-color: #5472e4;
+  --accent-bg: rgba(90, 170, 236, 0.15);
+  --text-color: #ffffff;
+  --accent-bg-rgb: 74, 111, 255;
+
+  /* Category Colors */
+  --technical-bg: #f5f8ff;
+  --technical-accent: #4a6fff;
+  --technical-accent-bg: rgba(74, 111, 255, 0.1);
+
+  --conservation-bg: #f2fbf6;
+  --conservation-accent: #34c77b;
+  --conservation-accent-bg: rgba(52, 199, 123, 0.1);
+
+  --health-bg: #fff5f5;
+  --health-accent: #ff6b6b;
+  --health-accent-bg: rgba(255, 107, 107, 0.1);
+
+  --cryptocurrency-bg: #f9f5ff;
+  --cryptocurrency-accent: #845ef7;
+  --cryptocurrency-accent-bg: rgba(132, 94, 247, 0.1);
+
+  --general-bg: #fff4e6;
+  --general-accent: #ff922b;
+  --general-accent-bg: rgba(255, 146, 43, 0.1);
+
+  /* Additional UI Variables */
+  --card-radius: 12px;
+  --transition-speed: 0.25s;
+  --glow-shadow: 0 0 20px rgba(84, 114, 228, 0.15);
+}
+
+.bookmark-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.bookmark-header {
+  margin-bottom: 2.5rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(90deg, var(--accent-color), #9382ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: -0.03em;
+}
+
+.filter-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.search-wrapper {
+  position: relative;
+  flex: 1;
+  max-width: 400px;
+}
+
+.search-wrapper i {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+#search-bookmarks {
+  width: 100%;
+  padding: 0.8rem 1rem 0.8rem 2.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: var(--text-color);
+  font-size: 1rem;
+  transition: all var(--transition-speed);
+}
+
+#search-bookmarks:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 2px rgba(84, 114, 228, 0.2);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filter-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: all var(--transition-speed);
+}
+
+.filter-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-color);
+}
+
+.filter-btn.active {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(84, 114, 228, 0.3);
+}
+
+.bookmarks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.bookmark-card {
+  background: var(--primary-color);
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  isolation: isolate;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.bookmark-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: var(--card-radius);
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.bookmark-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--glow-shadow);
+}
+
+.bookmark-image {
+  height: 180px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bookmark-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.bookmark-card:hover .bookmark-image img {
+  transform: scale(1.05);
+}
+
+.bookmark-actions {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s;
+}
+
+.bookmark-card:hover .bookmark-actions {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.action-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  color: var(--text-color);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.remove-bookmark {
+  color: #ff6b6b;
+}
+
+.action-btn:hover {
+  background: rgba(0, 0, 0, 0.9);
+  transform: scale(1.1);
+}
+
+.bookmark-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.bookmark-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.bookmark-date {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.bookmark-category {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+}
+
+.bookmark-category[data-category="technical"] {
+  background-color: var(--technical-accent-bg);
+  color: var(--technical-accent);
+}
+
+.bookmark-category[data-category="conservation"] {
+  background-color: var(--conservation-accent-bg);
+  color: var(--conservation-accent);
+}
+
+.bookmark-category[data-category="health"] {
+  background-color: var(--health-accent-bg);
+  color: var(--health-accent);
+}
+
+.bookmark-category[data-category="cryptocurrency"] {
+  background-color: var(--cryptocurrency-accent-bg);
+  color: var(--cryptocurrency-accent);
+}
+
+.bookmark-category[data-category="general"] {
+  background-color: var(--general-accent-bg);
+  color: var(--general-accent);
+}
+
+.bookmark-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.bookmark-excerpt {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1.5rem;
+  display: -webkit-box;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex-grow: 1;
+}
+
+.bookmark-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: auto;
+}
+
+.read-more {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.read-more:hover {
+  transform: translateX(3px);
+  text-decoration: none;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 4rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: var(--card-radius);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.empty-illustration {
+  font-size: 4rem;
+  color: rgba(255, 255, 255, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.empty-state h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.empty-state p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 1.5rem;
+  max-width: 400px;
+}
+
+.explore-btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--accent-color);
+  color: #fff;
+  font-weight: 500;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.explore-btn:hover {
+  box-shadow: 0 0 20px rgba(84, 114, 228, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .bookmark-container {
+    padding: 1rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .filter-controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .search-wrapper {
+    max-width: 100%;
+  }
+
+  .bookmark-title {
+    font-size: 1.1rem;
+  }
+}
+
+/* Futuristic glow effect */
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px rgba(var(--accent-bg-rgb), 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(var(--accent-bg-rgb), 0.8);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(var(--accent-bg-rgb), 0.5);
+  }
+}
+
+.filter-btn.active {
+  animation: glow 2s infinite;
+}

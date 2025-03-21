@@ -1,0 +1,85 @@
+{% extends "profileactionbase.html" %} {% block title %}Bookmarks{% endblock %}
+{% block extra_styles %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/bookmarks.css') }}"
+/>
+<!-- Add Font Awesome for icons -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+{% endblock %} {% block content %}
+<div class="bookmark-container">
+  <div class="bookmark-header">
+    <h1 class="section-title">My Bookmarks</h1>
+    <div class="filter-controls">
+      <div class="search-wrapper">
+        <i class="fas fa-search"></i>
+        <input
+          type="text"
+          id="search-bookmarks"
+          placeholder="Search bookmarks..."
+        />
+      </div>
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="technical">Technical</button>
+        <button class="filter-btn" data-filter="conservation">
+          Conservation
+        </button>
+        <button class="filter-btn" data-filter="health">Health</button>
+        <button class="filter-btn" data-filter="cryptocurrency">Crypto</button>
+        <button class="filter-btn" data-filter="general">General</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="bookmarks-grid" id="bookmarks-container">
+    <!-- Bookmark items will be loaded here from JavaScript -->
+  </div>
+
+  <template id="bookmark-template">
+    <div class="bookmark-card">
+      <div class="bookmark-image">
+        <img src="" alt="Article thumbnail" />
+        <div class="bookmark-actions">
+          <button
+            class="action-btn remove-bookmark"
+            title="Remove from bookmarks"
+          >
+            <i class="fas fa-bookmark"></i>
+          </button>
+          <button class="action-btn share-bookmark" title="Share">
+            <i class="fas fa-share-nodes"></i>
+          </button>
+        </div>
+      </div>
+      <div class="bookmark-content">
+        <div class="bookmark-meta">
+          <span class="bookmark-date"></span>
+          <span class="bookmark-category"></span>
+        </div>
+        <h3 class="bookmark-title"></h3>
+        <p class="bookmark-excerpt"></p>
+        <div class="bookmark-footer">
+          <a href="#" class="read-more"
+            >Read <i class="fas fa-arrow-right"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <div class="empty-state" id="empty-bookmarks" style="display: none">
+    <div class="empty-illustration">
+      <i class="fas fa-bookmark"></i>
+    </div>
+    <h3>No bookmarks found</h3>
+    <p>Start exploring articles and bookmark your favorites.</p>
+    <a href="/explore" class="explore-btn">Explore Articles</a>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/bookmark.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,390 @@
+.feed-container {
+  width: 70%;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+/* Featured Articles */
+.featured-articles {
+  margin-bottom: 4rem;
+}
+
+.featured-article {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  height: 400px;
+  transition: transform 0.3s ease;
+  text-decoration: none;
+  display: block;
+  color: inherit;
+}
+
+.featured-article:hover {
+  transform: translateY(-5px);
+}
+
+.featured-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.featured-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 2rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  width: 100%;
+}
+
+.featured-title {
+  color: var(--text-color);
+  font-size: 2rem;
+  margin: 0.5rem 0;
+}
+
+/* Timeline Section */
+.section-title {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  border-left: 4px solid var(--accent-color);
+}
+
+.timeline-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem; /* Reduced from 4rem */
+  position: relative;
+}
+
+.timeline-container::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  height: 100%;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--accent-color) 10%,
+    var(--accent-color) 90%,
+    transparent
+  );
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  position: relative;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.timeline-item:hover {
+  background: rgba(26, 26, 26, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(90, 170, 236, 0.15);
+}
+
+.timeline-marker {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: var(--background-color);
+  border: 2px solid var(--accent-color);
+  border-radius: 50%;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 0 4px var(--background-color);
+}
+
+.timeline-marker::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--accent-color);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+}
+
+/* Timeline item hover effects */
+.timeline-item:hover .timeline-marker {
+  border-color: var(--accent-color);
+  transform: translateY(-50%) scale(1.2);
+}
+
+.timeline-item:hover .timeline-marker::before {
+  background: var(--accent-color);
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+/* For the right side timeline items */
+.timeline-right .timeline-marker {
+  right: auto;
+  left: -10px;
+}
+
+.timeline-content {
+  display: flex;
+  gap: 1rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.timeline-thumb {
+  width: 80px; /* Reduced from 100px */
+  height: 80px; /* Reduced from 100px */
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+/* Categories Section */
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding: 0.5rem;
+}
+
+.category-post {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 1.5rem;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.category-post:hover {
+  transform: translateY(-5px);
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  z-index: 1;
+}
+
+.post-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0;
+  line-height: 1.4;
+  color: var(--text-color);
+}
+
+.category-tag {
+  padding: 0.35rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+.post-cover {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.post-title-link {
+  text-decoration: none;
+  color: inherit;
+  flex: 1;
+  margin-right: 1rem;
+}
+
+.post-title-link:hover .post-title {
+  color: var(--accent-color);
+}
+
+/* Ensure hover states work with links */
+a.featured-article:hover {
+  transform: translateY(-5px);
+}
+
+a.timeline-content:hover {
+  color: inherit;
+}
+
+.timeline-item:hover a {
+  color: inherit;
+}
+
+/* Article tag styling */
+.article-tag {
+  padding: 0.35rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  border: 1px solid;
+}
+
+/* Tag color variations */
+.article-tag[data-category="Technology"] {
+  color: #4a6fff;
+  border-color: #4a6fff;
+  background: rgba(74, 111, 255, 0.1);
+}
+
+.article-tag[data-category="Design"] {
+  color: #34c77b;
+  border-color: #34c77b;
+  background: rgba(52, 199, 123, 0.1);
+}
+
+.article-tag[data-category="Health"] {
+  color: #ff6b6b;
+  border-color: #ff6b6b;
+  background: rgba(255, 107, 107, 0.1);
+}
+
+.article-tag[data-category="Cryptocurrency"] {
+  color: #845ef7;
+  border-color: #845ef7;
+  background: rgba(132, 94, 247, 0.1);
+}
+
+.article-tag[data-category="General"] {
+  color: #ff922b;
+  border-color: #ff922b;
+  background: rgba(255, 146, 43, 0.1);
+}
+
+/* Prevent default link colors and underlines */
+.categories-section a,
+.timeline-section a,
+.featured-articles a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.post-cover-link {
+  display: block;
+  text-decoration: none;
+}
+
+.post-metrics {
+  display: flex;
+  gap: 2rem;
+  margin-top: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.metric {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.metric:hover {
+  color: var(--accent-color);
+}
+
+.metric i {
+  font-size: 1.1rem;
+}
+
+/* Category-specific styling */
+[data-category="Technical"] {
+  background: linear-gradient(145deg, rgba(74, 111, 255, 0.05), transparent);
+}
+
+[data-category="Conservations"] {
+  background: linear-gradient(145deg, rgba(52, 199, 123, 0.05), transparent);
+}
+
+[data-category="Health"] {
+  background: linear-gradient(145deg, rgba(255, 107, 107, 0.05), transparent);
+}
+
+[data-category="Cryptocurrency"] {
+  background: linear-gradient(145deg, rgba(132, 94, 247, 0.05), transparent);
+}
+
+[data-category="General"] {
+  background: linear-gradient(145deg, rgba(255, 146, 43, 0.05), transparent);
+}
+
+/* Hover effects */
+.category-post:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.category-post:hover .post-cover {
+  transform: scale(1.02);
+}
+
+/* .category-post:hover .metric i {
+  transform: scale(1.1);
+} */
+
+/* Category tag colors */
+[data-category="Technical"] .category-tag {
+  background: rgba(74, 111, 255, 0.15);
+  color: #4a6fff;
+}
+
+[data-category="Conservations"] .category-tag {
+  background: rgba(52, 199, 123, 0.15);
+  color: #34c77b;
+}
+
+[data-category="Health"] .category-tag {
+  background: rgba(255, 107, 107, 0.15);
+  color: #ff6b6b;
+}
+
+[data-category="Cryptocurrency"] .category-tag {
+  background: rgba(132, 94, 247, 0.15);
+  color: #845ef7;
+}
+
+[data-category="General"] .category-tag {
+  background: rgba(255, 146, 43, 0.15);
+  color: #ff922b;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .categories-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .category-post {
+    padding: 1rem;
+  }
+
+  .post-cover {
+    height: 160px;
+  }
+}

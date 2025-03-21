@@ -1,0 +1,173 @@
+{% extends 'base.html' %} {% block title %}Profile - Rēadmire{% endblock %} {%
+block extra_styles %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/profile.css') }}"
+/>
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/stat.css') }}"
+/>
+<!-- Add Font Awesome for icons -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+{% endblock %} {% block content %}
+<div class="profile-container">
+  <!-- User Details Box -->
+  <div class="details-box">
+    <div class="box-header">
+      <div class="tag">
+        <span>User Details</span>
+      </div>
+      <button class="settings-btn">
+        <i class="fas fa-cog"></i>
+      </button>
+    </div>
+
+    <div class="user-info">
+      <div class="profile-image">
+        <img
+          src="{{ url_for('static', filename='images/profile.png') }}"
+          alt="Profile Picture"
+        />
+      </div>
+      <div class="user-content">
+        <h2 class="username">Omobolaji Durojaiye</h2>
+        <div class="gem-container">
+          <div class="gem-banner">
+            <div class="gem-glow"></div>
+            <img
+              src="{{ url_for('static', filename='icons/gem2.jpg') }}"
+              alt="Gems"
+              class="gem-icon"
+            />
+            <!-- <i class="fas fa-gem"></i> &nbsp; -->
+            <span class="gem-count">1,337</span>
+            <span class="gem-label">GEMS</span>
+          </div>
+        </div>
+        <div class="user-badges">
+          <div class="badge-wrapper" data-tooltip="Curious Explorer">
+            <img
+              src="{{ url_for('static', filename='icons/curious.jpg') }}"
+              alt="Master Badge"
+              class="user-badge unlocked"
+            />
+          </div>
+          <div class="badge-wrapper" data-tooltip="Engaged Thinker">
+            <img
+              src="{{ url_for('static', filename='icons/thinker.jpg') }}"
+              alt="Expert Badge"
+              class="user-badge unlocked"
+            />
+          </div>
+          <div class="badge-wrapper" data-tooltip="Community Builder">
+            <img
+              src="{{ url_for('static', filename='icons/builder.jpg') }}"
+              alt="Rising Star Badge"
+              class="user-badge unlocked"
+            />
+          </div>
+          <div
+            class="badge-wrapper locked"
+            data-tooltip="Locked: Debate Master"
+          >
+            <div class="lock-overlay">
+              <i class="fas fa-lock"></i>
+            </div>
+            <img
+              src="{{ url_for('static', filename='icons/debate.jpg') }}"
+              alt="Locked Badge"
+              class="user-badge"
+            />
+          </div>
+          <div
+            class="badge-wrapper locked"
+            data-tooltip="Locked: Rēadmire Legend 🏆"
+          >
+            <div class="lock-overlay">
+              <i class="fas fa-lock"></i>
+            </div>
+            <img
+              src="{{ url_for('static', filename='icons/legend.jpg') }}"
+              alt="Locked Badge"
+              class="user-badge"
+            />
+          </div>
+        </div>
+
+        <div class="action-buttons">
+          <a href="{{ url_for('profile.bookmarks') }}" class="action-btn"
+            ><i class="fas fa-bookmark"></i> Bookmarks</a
+          >
+          <a href="{{ url_for('profile.leaderboard') }}" class="action-btn"
+            ><i class="fas fa-trophy"></i> Leaderboard</a
+          >
+          <a href="{{ url_for('profile.stat') }}" class="action-btn"
+            ><i class="fas fa-trophy"></i> Stat</a
+          >
+
+          <a href="{{ url_for('profile.contactreport') }}" class="action-btn"
+            ><i class="fas fa-bug"></i> Contact Us/Report</a
+          >
+          <a href="#" class="action-btn"
+            ><i class="fas fa-share-nodes"></i> Socials</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-box">
+        <i class="fas fa-book-open"></i>
+        <span class="stat-label">Total Articles Read</span>
+        <span class="stat-value">156</span>
+      </div>
+      <div class="stat-box">
+        <i class="fas fa-comments"></i>
+        <span class="stat-label">Total Comments</span>
+        <span class="stat-value">48</span>
+      </div>
+      <div class="stat-box">
+        <i class="fas fa-ranking-star"></i>
+        <span class="stat-label">Weekly Rank</span>
+        <span class="stat-value">#12</span>
+      </div>
+      <div class="stat-box">
+        <i class="fas fa-crown"></i>
+        <span class="stat-label">All-time Rank</span>
+        <span class="stat-value">#89</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Performance Chart Box -->
+  <div class="chart-box">
+    <div class="box-header">
+      <div class="tag">
+        <span>Performance Chart</span>
+      </div>
+      <div class="dropdown">
+        <button class="dropdown-btn">
+          <i class="fas fa-calendar"></i>
+          This Week
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="#"><i class="fas fa-calendar-week"></i> This Week</a>
+          <a href="#"><i class="fas fa-calendar-day"></i> Yesterday</a>
+          <a href="#"><i class="fas fa-infinity"></i> All Time</a>
+        </div>
+      </div>
+    </div>
+    <div class="chart-container">
+      <!-- Chart will be added here later -->
+      <div class="chart-placeholder">Chart coming soon...</div>
+    </div>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/profile.js') }}"></script>
+{% endblock %}

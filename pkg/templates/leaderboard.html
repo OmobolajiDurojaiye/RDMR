@@ -1,0 +1,133 @@
+{% extends "profileactionbase.html" %} {% block title %}Leaderboard{% endblock
+%} {% block extra_styles %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/leaderboard.css') }}"
+/>
+<!-- Add Font Awesome for icons -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+{% endblock %} {% block content %}
+<div class="leaderboard-container">
+  <!-- Time Filter -->
+  <div class="time-filter">
+    <button class="filter-btn active" data-period="week">This Week</button>
+    <button class="filter-btn" data-period="month">This Month</button>
+    <button class="filter-btn" data-period="all">All Time</button>
+  </div>
+
+  <!-- Top 3 Podium -->
+  <div class="top-winners">
+    <!-- Second Place -->
+    <div class="podium-card second-place">
+      <div class="profile-pic">
+        <img
+          src="{{ url_for('static', filename='images/profile.png') }}"
+          alt="2nd Place"
+          id="second-place-img"
+        />
+      </div>
+      <h3 class="winner-name" id="second-place-name">User 2</h3>
+      <div class="diamond-podium">
+        <div class="trophy-section">
+          <i class="fas fa-trophy silver-trophy"></i>
+          <p class="points">
+            Earned <span id="second-place-points">200</span> points
+          </p>
+        </div>
+        <div class="gems-section">
+          <div class="gems-info">
+            <i class="fas fa-gem"></i>
+            <span id="second-place-gems">150</span>
+          </div>
+          <p>GEMS</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- First Place -->
+    <div class="podium-card first-place">
+      <div class="profile-pic">
+        <img
+          src="{{ url_for('static', filename='images/profile.png') }}"
+          alt="1st Place"
+          id="first-place-img"
+        />
+      </div>
+      <h3 class="winner-name" id="first-place-name">User 1</h3>
+      <div class="diamond-podium">
+        <div class="trophy-section">
+          <i class="fas fa-trophy gold-trophy"></i>
+          <p class="points">
+            Earned <span id="first-place-points">300</span> points
+          </p>
+        </div>
+        <div class="gems-section">
+          <div class="gems-info">
+            <i class="fas fa-gem"></i>
+            <span id="first-place-gems">200</span>
+          </div>
+          <p>GEMS</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Third Place -->
+    <div class="podium-card third-place">
+      <div class="profile-pic">
+        <img
+          src="{{ url_for('static', filename='images/profile.png') }}"
+          alt="3rd Place"
+          id="third-place-img"
+        />
+      </div>
+      <h3 class="winner-name" id="third-place-name">User 3</h3>
+      <div class="diamond-podium">
+        <div class="trophy-section">
+          <i class="fas fa-trophy bronze-trophy"></i>
+          <p class="points">
+            Earned <span id="third-place-points">100</span> points
+          </p>
+        </div>
+        <div class="gems-section">
+          <div class="gems-info">
+            <i class="fas fa-gem"></i>
+            <span id="third-place-gems">100</span>
+          </div>
+          <p>GEMS</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chart Link -->
+  <div class="chart-link">
+    <p>
+      To view the graphical chart,
+      <a href="/chart" id="view-chart">click here</a>
+    </p>
+  </div>
+
+  <!-- Rankings Table -->
+  <div class="rankings-table">
+    <table>
+      <thead>
+        <tr>
+          <th><i class="fas fa-medal"></i> Place</th>
+          <th><i class="fas fa-user"></i> Username</th>
+          <th><i class="fas fa-star"></i> Points</th>
+          <th><i class="fas fa-gem"></i> Gems</th>
+        </tr>
+      </thead>
+      <tbody id="rankings-body">
+        <!-- Table content will be populated by JavaScript -->
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='js/leaderboard.js') }}"></script>
+{% endblock %} {% endblock %}

@@ -1,0 +1,158 @@
+{% extends "profileactionbase.html" %} {% block title %}Contact / Report a Bug{%
+endblock %} {% block extra_styles %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/contactreport.css') }}"
+/>
+<!-- Add Font Awesome for icons -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+{% endblock %} {% block content %}
+<div class="contact-container">
+  <!-- FAQ Section -->
+  <div class="faq-section">
+    <button class="faq-toggle">
+      <i class="fas fa-question-circle"></i>
+      Frequently Asked Questions
+      <i class="fas fa-chevron-down"></i>
+    </button>
+    <div class="faq-content">
+      <div class="faq-item">
+        <div class="faq-question">
+          <i class="fas fa-caret-right"></i>
+          How do I report a critical bug?
+        </div>
+        <div class="faq-answer">
+          Critical bugs should be reported using the "Report a Bug" option.
+          Please include steps to reproduce, screenshots if available, and mark
+          it as critical in your description.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <i class="fas fa-caret-right"></i>
+          What is the response time for inquiries?
+        </div>
+        <div class="faq-answer">
+          We typically respond to all inquiries within 24-48 hours. Critical bug
+          reports are prioritized and usually addressed within 24 hours.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <i class="fas fa-caret-right"></i>
+          Can I track the status of my bug report?
+        </div>
+        <div class="faq-answer">
+          Yes, all submitted bug reports receive a unique tracking ID. You can
+          check the status in your account dashboard under "My Reports".
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">
+          <i class="fas fa-caret-right"></i>
+          How can I join your beta testing program?
+        </div>
+        <div class="faq-answer">
+          Beta testing opportunities are announced in our Discord community and
+          through email newsletters. Make sure your notification preferences are
+          enabled in your account settings.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chat/Message Area -->
+  <div class="chat-area">
+    <div class="welcome-message">
+      <i class="fas fa-robot"></i>
+      <div class="welcome-text">
+        <h3>Hi, Omobolaji!</h3>
+        <p>
+          What would you like to report today? Choose an option below and send
+          us a message.
+        </p>
+      </div>
+    </div>
+
+    <div class="messages-container" id="messagesContainer">
+      <!-- Messages will appear here -->
+    </div>
+
+    <!-- Message Input Area -->
+    <div class="message-input-container">
+      <div class="report-type-selector">
+        <div class="report-option">
+          <input
+            type="radio"
+            id="contactUs"
+            name="reportType"
+            value="contact"
+            checked
+          />
+          <label for="contactUs">
+            <i class="fas fa-comments"></i>
+            Contact Us
+          </label>
+        </div>
+        <div class="report-option">
+          <input type="radio" id="reportBug" name="reportType" value="bug" />
+          <label for="reportBug">
+            <i class="fas fa-bug"></i>
+            Report a Bug
+          </label>
+        </div>
+      </div>
+
+      <div class="text-formatting-toolbar">
+        <button class="format-btn" title="Bold" data-format="bold">
+          <i class="fas fa-bold"></i>
+        </button>
+        <button class="format-btn" title="Italic" data-format="italic">
+          <i class="fas fa-italic"></i>
+        </button>
+        <button class="format-btn" title="Underline" data-format="underline">
+          <i class="fas fa-underline"></i>
+        </button>
+        <button class="format-btn" title="Bulleted List" data-format="bullet">
+          <i class="fas fa-list-ul"></i>
+        </button>
+        <button class="format-btn" title="Numbered List" data-format="number">
+          <i class="fas fa-list-ol"></i>
+        </button>
+        <button class="format-btn" title="Code" data-format="code">
+          <i class="fas fa-code"></i>
+        </button>
+        <button class="format-btn" title="Upload Image" data-format="image">
+          <i class="fas fa-image"></i>
+        </button>
+        <input
+          type="file"
+          id="imageUpload"
+          accept="image/*"
+          style="display: none"
+        />
+      </div>
+
+      <div
+        class="message-editor"
+        contenteditable="true"
+        placeholder="Type your message here..."
+      ></div>
+
+      <div class="message-actions">
+        <button class="attach-btn" title="Attach File">
+          <!-- <i class="fas fa-paperclip"></i> -->
+        </button>
+        <button class="send-btn" title="Send Message">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/contactreport.js') }}"></script>
+{% endblock %}

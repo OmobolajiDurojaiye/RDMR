@@ -1,0 +1,354 @@
+:root {
+  --background-color: #0a0a0a;
+  --primary-color: #1a1a1a;
+  --accent-color: #5472e4;
+  --accent-bg: rgba(90, 170, 236, 0.15);
+  --text-color: #ffffff;
+  --accent-bg-rgb: 74, 111, 255;
+}
+
+* {
+  text-decoration: none;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Bottom Navigation */
+.navbar {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 420px;
+  background: rgba(26, 26, 26, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 20px;
+  border: 1px solid rgba(90, 170, 236, 0.15);
+  border-radius: 20px;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #888;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 6px 8px; /* Reduced padding */
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.nav-item .icon {
+  width: 20px;
+  height: 20px;
+  margin-bottom: 4px;
+  filter: grayscale(100%);
+  transition: all 0.3s ease;
+}
+
+.nav-item span {
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  color: var(--accent-color);
+  background: var(--accent-bg);
+  transform: scale(1.1);
+}
+
+#categoriesBtn {
+  border: none;
+  background-color: transparent;
+}
+
+.modal-close {
+  color: (--text-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .navbar {
+    width: 95%;
+    padding: 10px 16px;
+    bottom: 16px;
+  }
+
+  .nav-item {
+    padding: 4px 6px;
+  }
+
+  .nav-item .icon {
+    width: 18px;
+    height: 18px;
+    margin-bottom: 3px;
+  }
+
+  .nav-item span {
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .navbar {
+    padding: 8px 12px;
+  }
+
+  .nav-item span {
+    display: none;
+  }
+
+  .nav-item .icon {
+    margin-bottom: 0;
+  }
+}
+
+/* Icons */
+.navbar a i {
+  font-size: 24px;
+}
+
+/* Profile Corner */
+.profile-corner {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.profile-corner .profile-icon {
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  background: rgba(26, 26, 26, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(90, 170, 236, 0.15);
+  border-radius: 50%; /* Changed to make it circular */
+  transition: all 0.3s ease;
+}
+
+.profile-corner:hover .profile-icon {
+  background: var(--accent-bg);
+  transform: scale(1.1);
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  padding: 2.5rem;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 700px;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.modal-close .icon {
+  width: 16px;
+  height: 16px;
+  filter: brightness(0) invert(1);
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.category-box {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem 1.5rem;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(90, 170, 236, 0.15);
+}
+
+.category-box:hover {
+  transform: translateY(-2px);
+  background: var(--accent-bg);
+  border-color: var(--accent-color);
+}
+
+.category-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 0.5rem;
+}
+
+.category-box span {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .category-box {
+    padding: 1.5rem 1rem;
+  }
+
+  .category-icon {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* Theme transitions */
+body {
+  transition: background-color 0.3s ease;
+}
+
+/* Responsive adjustments for profile corner */
+@media (max-width: 480px) {
+  .profile-corner {
+    top: 16px;
+    left: 16px;
+  }
+
+  .profile-corner .profile-icon {
+    width: 36px;
+    height: 36px;
+    padding: 6px;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Scroll to Top Button */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background: rgba(26, 26, 26, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(90, 170, 236, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+  color: #888;
+}
+
+.scroll-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-top-btn:hover {
+  color: var(--accent-color);
+  background: var(--accent-bg);
+  transform: scale(1.1);
+}
+
+.scroll-top-btn i {
+  font-size: 18px;
+}
+
+/* Responsive adjustments for scroll button */
+@media (max-width: 480px) {
+  .scroll-top-btn {
+    bottom: 80px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .scroll-top-btn i {
+    font-size: 16px;
+  }
+}

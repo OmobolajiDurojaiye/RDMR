@@ -1,0 +1,351 @@
+:root {
+  --background-color: #0a0a0a;
+  --primary-color: #1a1a1a;
+  --accent-color: #5472e4;
+  --accent-bg: rgba(90, 170, 236, 0.15);
+  --text-color: #ffffff;
+  --accent-bg-rgb: 74, 111, 255;
+  --border-radius: 12px;
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --transition: all 0.3s ease;
+  --border-glow: 0 0 8px rgba(84, 114, 228, 0.4);
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.contact-container {
+  width: 70%;
+  margin: 2rem auto;
+  background-color: var(--primary-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  overflow: hidden;
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* FAQ Section */
+.faq-section {
+  margin: 1rem auto;
+  width: 90%;
+}
+
+.faq-toggle {
+  background-color: var(--accent-bg);
+  color: var(--accent-color);
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  transition: var(--transition);
+}
+
+.faq-toggle:hover {
+  background-color: rgba(var(--accent-bg-rgb), 0.25);
+}
+
+.faq-toggle i:last-child {
+  margin-left: auto;
+}
+
+.faq-content {
+  background-color: rgba(26, 26, 26, 0.7);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  margin-top: 0.5rem;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.5s ease;
+}
+
+.faq-content.show {
+  max-height: 500px;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.75rem 1rem;
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-question {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--accent-color);
+}
+
+.faq-question i {
+  transition: transform 0.3s ease;
+}
+
+.faq-question.active i {
+  transform: rotate(90deg);
+}
+
+.faq-answer {
+  padding: 0.75rem 1.5rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  display: none;
+}
+
+.faq-answer.show {
+  display: block;
+}
+
+/* Chat Area */
+.chat-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  position: relative;
+}
+
+.welcome-message {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background-color: var(--accent-bg);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  margin-bottom: 1rem;
+}
+
+.welcome-message i {
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0.75rem;
+  border-radius: 50%;
+}
+
+.welcome-text h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.welcome-text p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.messages-container {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+  padding-right: 0.5rem;
+}
+
+/* Message Input Area */
+.message-input-container {
+  background-color: rgba(26, 26, 26, 0.8);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  position: sticky;
+  bottom: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.report-type-selector {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.report-option {
+  display: flex;
+  align-items: center;
+}
+
+.report-option input[type="radio"] {
+  display: none;
+}
+
+.report-option label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.report-option input[type="radio"]:checked + label {
+  background-color: var(--accent-bg);
+  color: var(--accent-color);
+}
+
+.text-formatting-toolbar {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.75rem;
+}
+
+.format-btn {
+  background-color: transparent;
+  border: none;
+  color: var(--text-color);
+  font-size: 0.9rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.format-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.format-btn.active {
+  background-color: var(--accent-bg);
+  color: var(--accent-color);
+}
+
+.message-editor {
+  min-height: 100px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius);
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.75rem;
+  overflow-y: auto;
+  color: var(--text-color);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: var(--transition);
+}
+
+.message-editor:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: var(--border-glow);
+}
+
+.message-editor[placeholder]:empty:before {
+  content: attr(placeholder);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.message-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.attach-btn,
+.send-btn {
+  background-color: transparent;
+  border: none;
+  color: var(--text-color);
+  font-size: 1rem;
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: var(--transition);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.attach-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.send-btn {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.send-btn:hover {
+  filter: brightness(1.1);
+}
+
+/* Messages styling */
+.message {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.message-user {
+  justify-content: flex-end;
+}
+
+.message-content {
+  max-width: 75%;
+  padding: 0.75rem 1rem;
+  border-radius: 18px;
+  word-break: break-word;
+}
+
+.message-user .message-content {
+  background-color: var(--accent-color);
+  border-radius: 18px 18px 4px 18px;
+}
+
+.message-system .message-content {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 18px 18px 18px 4px;
+}
+
+.message-time {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 0.25rem;
+  text-align: right;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .contact-container {
+    width: 90%;
+  }
+
+  .message-content {
+    max-width: 85%;
+  }
+}
