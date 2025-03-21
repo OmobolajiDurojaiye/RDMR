@@ -4,4 +4,4 @@ articlepage = Blueprint('articlepage', __name__, url_prefix='/articlepage')
 
 @articlepage.route('/')
 def article_page():
-    return render_template('articlepage.html')
+    return render_template('user/articlepage.html')

@@ -5,5 +5,5 @@ home = Blueprint('home', __name__, template_folder="../templates")
 
 @home.route('/feed/')
 def home_feed():
-    return render_template('home.html')
+    return render_template('user/home.html')
 

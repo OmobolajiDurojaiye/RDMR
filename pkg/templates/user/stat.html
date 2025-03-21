@@ -1,0 +1,292 @@
+{% extends "user/profileactionbase.html" %} {% block title %}Stat{% endblock %}
+{% block extra_styles %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/stat.css') }}"
+/>
+<!-- Add Font Awesome for icons -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+{% endblock %} {% block content %}
+
+<!DOCTYPE html>
+
+<div class="stats-container">
+  <header class="stats-header">
+    <h1>YOUR 2025 <span class="gradient-text">STAT</span></h1>
+    <p class="subtitle">Your journey through words and ideas</p>
+  </header>
+
+  <section class="stat-card highlight-card">
+    <div class="card-content">
+      <h2>Your Reading Persona</h2>
+      <div class="persona">
+        <div class="persona-icon">
+          <i class="fas fa-lightbulb"></i>
+        </div>
+        <div class="persona-details">
+          <h3>The Knowledge Seeker</h3>
+          <p>
+            You've spent more time than 87% of readers expanding your horizons
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stat-card">
+    <div class="stat-header">
+      <i class="fas fa-crown"></i>
+      <h2>Top Categories</h2>
+    </div>
+    <div class="categories-chart">
+      <div class="category-bar">
+        <div class="category-label">
+          <i class="fas fa-microchip"></i>
+          <span>Technical</span>
+        </div>
+        <div class="bar-container">
+          <div class="bar" style="width: 85%" data-percentage="85%"></div>
+        </div>
+      </div>
+      <div class="category-bar">
+        <div class="category-label">
+          <i class="fas fa-bitcoin"></i>
+          <span>Cryptocurrency</span>
+        </div>
+        <div class="bar-container">
+          <div class="bar" style="width: 65%" data-percentage="65%"></div>
+        </div>
+      </div>
+      <div class="category-bar">
+        <div class="category-label">
+          <i class="fas fa-heart"></i>
+          <span>Health</span>
+        </div>
+        <div class="bar-container">
+          <div class="bar" style="width: 45%" data-percentage="45%"></div>
+        </div>
+      </div>
+      <div class="category-bar">
+        <div class="category-label">
+          <i class="fas fa-globe"></i>
+          <span>General</span>
+        </div>
+        <div class="bar-container">
+          <div class="bar" style="width: 30%" data-percentage="30%"></div>
+        </div>
+      </div>
+      <div class="category-bar">
+        <div class="category-label">
+          <i class="fas fa-leaf"></i>
+          <span>Conservation</span>
+        </div>
+        <div class="bar-container">
+          <div class="bar" style="width: 20%" data-percentage="20%"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats-grid">
+    <section class="stat-card">
+      <div class="stat-header">
+        <i class="fas fa-star"></i>
+        <h2>Most Read Article</h2>
+      </div>
+      <div class="article-card">
+        <div class="article-image">
+          <div class="article-category">Technical</div>
+        </div>
+        <h3 class="article-title">Web3: The Future of Internet</h3>
+        <div class="article-meta">
+          <span><i class="fas fa-eye"></i> Read 7 times</span>
+          <span><i class="fas fa-clock"></i> 42 minutes spent</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="stat-card">
+      <div class="stat-header">
+        <i class="fas fa-heart"></i>
+        <h2>Favorite Article</h2>
+      </div>
+      <div class="article-card">
+        <div class="article-image">
+          <div class="article-category">Cryptocurrency</div>
+        </div>
+        <h3 class="article-title">NFTs: Beyond the Hype</h3>
+        <div class="article-meta">
+          <span><i class="fas fa-bookmark"></i> Saved on May 15</span>
+          <span><i class="fas fa-share-alt"></i> Shared 2 times</span>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="stat-card">
+    <div class="stat-header">
+      <i class="fas fa-chart-line"></i>
+      <h2>Your Engagement Timeline</h2>
+    </div>
+    <div class="timeline-chart">
+      <div class="months-container">
+        <div class="month" data-value="35">
+          <div class="month-bar"></div>
+          <span>Jan</span>
+        </div>
+        <div class="month" data-value="42">
+          <div class="month-bar"></div>
+          <span>Feb</span>
+        </div>
+        <div class="month" data-value="58">
+          <div class="month-bar"></div>
+          <span>Mar</span>
+        </div>
+        <div class="month" data-value="65">
+          <div class="month-bar"></div>
+          <span>Apr</span>
+        </div>
+        <div class="month" data-value="85">
+          <div class="month-bar"></div>
+          <span>May</span>
+        </div>
+        <div class="month" data-value="70">
+          <div class="month-bar"></div>
+          <span>Jun</span>
+        </div>
+        <div class="month" data-value="60">
+          <div class="month-bar"></div>
+          <span>Jul</span>
+        </div>
+        <div class="month" data-value="75">
+          <div class="month-bar"></div>
+          <span>Aug</span>
+        </div>
+        <div class="month" data-value="92">
+          <div class="month-bar"></div>
+          <span>Sep</span>
+        </div>
+        <div class="month" data-value="78">
+          <div class="month-bar"></div>
+          <span>Oct</span>
+        </div>
+        <div class="month" data-value="80">
+          <div class="month-bar"></div>
+          <span>Nov</span>
+        </div>
+        <div class="month" data-value="95">
+          <div class="month-bar"></div>
+          <span>Dec</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats-grid three-column">
+    <section class="stat-card rank-card">
+      <div class="stat-number">
+        <span class="rank-value">#42</span>
+      </div>
+      <div class="stat-label">
+        <i class="fas fa-trophy"></i>
+        <span>Overall Rank</span>
+      </div>
+      <div class="stat-details">Top 5% of all readers</div>
+    </section>
+
+    <section class="stat-card rank-card">
+      <div class="stat-number">
+        <span class="gems-value">158</span>
+      </div>
+      <div class="stat-label">
+        <i class="fas fa-gem"></i>
+        <span>Gems Collected</span>
+      </div>
+      <div class="stat-details">25 more than last year</div>
+    </section>
+
+    <section class="stat-card rank-card">
+      <div class="stat-number">
+        <span class="comments-value">86</span>
+      </div>
+      <div class="stat-label">
+        <i class="fas fa-comment"></i>
+        <span>Comments Made</span>
+      </div>
+      <div class="stat-details">You're a conversation starter!</div>
+    </section>
+  </div>
+
+  <section class="stat-card">
+    <div class="stat-header">
+      <i class="fas fa-award"></i>
+      <h2>Badges Earned</h2>
+    </div>
+    <div class="badges-container">
+      <div class="badge">
+        <div class="badge-icon">
+          <i class="fas fa-rocket"></i>
+        </div>
+        <div class="badge-info">
+          <h3>Early Adopter</h3>
+          <p>Among the first 100 users</p>
+        </div>
+      </div>
+      <div class="badge">
+        <div class="badge-icon">
+          <i class="fas fa-fire"></i>
+        </div>
+        <div class="badge-info">
+          <h3>Reading Streak</h3>
+          <p>Read articles for 15 days in a row</p>
+        </div>
+      </div>
+      <div class="badge">
+        <div class="badge-icon">
+          <i class="fas fa-lightbulb"></i>
+        </div>
+        <div class="badge-info">
+          <h3>Thought Leader</h3>
+          <p>10 comments with 20+ likes</p>
+        </div>
+      </div>
+      <div class="badge">
+        <div class="badge-icon">
+          <i class="fas fa-coins"></i>
+        </div>
+        <div class="badge-info">
+          <h3>Crypto Explorer</h3>
+          <p>Read 80% of crypto articles</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stat-card highlight-card">
+    <div class="share-stats">
+      <h2>Share Your Stat</h2>
+      <p>Let your friends know about your reading journey</p>
+      <div class="share-buttons">
+        <button class="share-btn twitter">
+          <i class="fab fa-twitter"></i> Twitter
+        </button>
+        <button class="share-btn facebook">
+          <i class="fab fa-facebook"></i> Facebook
+        </button>
+        <button class="share-btn linkedin">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="stats-footer">
+    <p>Your 2025 Stat • Generated on March 21, 2025</p>
+  </footer>
+</div>
+
+<script src="{{ url_for('static', filename='js/profile.js') }}"></script>
+{%endblock%}

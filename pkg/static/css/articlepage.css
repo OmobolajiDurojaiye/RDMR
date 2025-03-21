@@ -67,30 +67,17 @@ body {
 
 /* Back Button */
 .back-button {
-  position: absolute;
-  top: 2rem;
-  left: 0;
-  z-index: 10;
-  background-color: rgba(26, 26, 26, 0.8);
+  position: fixed;
+  top: 20px;
+  left: 20px;
   color: var(--text-color);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  font-size: 1.5rem;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s ease;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1000;
 }
 
 .back-button:hover {
-  transform: translateX(-3px);
-  background-color: var(--accent-color);
+  color: var(--accent-color);
 }
 
 /* Article Cover */

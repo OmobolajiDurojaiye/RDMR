@@ -4,4 +4,4 @@ chart = Blueprint('chart', __name__, url_prefix='/chart')
 
 @chart.route('/')
 def chart_view():
-    return render_template('chart.html')
+    return render_template('user/chart.html')
