@@ -258,6 +258,115 @@ body {
   }
 }
 
+/* Hidden navbar class */
+.navbar.hidden {
+  transform: translateY(150px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Toggle button for showing navbar */
+.nav-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: rgba(26, 26, 26, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(90, 170, 236, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+
+.nav-toggle.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav-toggle:hover {
+  background: var(--accent-bg);
+  transform: scale(1.1);
+}
+
+.nav-toggle-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Minimize button container */
+.minimize-container {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  z-index: 1001;
+}
+
+/* Minimize button */
+.minimize-btn {
+  width: 26px;
+  height: 26px;
+  background: rgba(26, 26, 26, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(90, 170, 236, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.minimize-btn:hover {
+  background: var(--accent-bg);
+  transform: scale(1.1);
+}
+
+.minimize-icon {
+  width: 12px;
+  height: 12px;
+}
+
+/* Smooth transition for navbar */
+.navbar {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  /* No position: relative here to maintain fixed positioning from original CSS */
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .nav-toggle {
+    bottom: 16px;
+    right: 16px;
+    width: 45px;
+    height: 45px;
+  }
+
+  .nav-toggle-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .minimize-btn {
+    width: 24px;
+    height: 24px;
+  }
+
+  .minimize-icon {
+    width: 10px;
+    height: 10px;
+  }
+}
+
 /* Profile Corner */
 .profile-corner {
   position: fixed;

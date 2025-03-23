@@ -8,8 +8,28 @@ document.addEventListener("DOMContentLoaded", () => {
   const categoryBoxes = document.querySelectorAll(".category-box");
   const closeBtn = document.querySelector(".modal-close");
   const scrollToTopBtn = document.getElementById("scrollToTop");
+  const navbar = document.querySelector(".navbar");
 
-  // Lighter, more modern theme colors
+  // Create the toggle button for navbar (initially hidden)
+  const navToggle = document.createElement("button");
+  navToggle.className = "nav-toggle";
+  navToggle.innerHTML =
+    '<img src="/static/icons/menu.png" alt="Show Menu" class="nav-toggle-icon">';
+  document.body.appendChild(navToggle);
+
+  // Create minimize button wrapper and add to navbar
+  const minimizeBtn = document.createElement("button");
+  minimizeBtn.className = "minimize-btn";
+  minimizeBtn.innerHTML =
+    '<img src="/static/icons/minimize.png" alt="Hide" class="minimize-icon">';
+
+  // Create a container for the minimize button
+  const minimizeContainer = document.createElement("div");
+  minimizeContainer.className = "minimize-container";
+  minimizeContainer.appendChild(minimizeBtn);
+  navbar.appendChild(minimizeContainer);
+
+  // Themes
   const themes = {
     blue: {
       bg: "#f5f8ff",
@@ -37,6 +57,23 @@ document.addEventListener("DOMContentLoaded", () => {
       accentBg: "rgba(255, 146, 43, 0.1)",
     },
   };
+
+  // Toggle navbar visibility
+  function toggleNavbar() {
+    if (navbar.classList.contains("hidden")) {
+      // Show navbar
+      navbar.classList.remove("hidden");
+      navToggle.classList.remove("visible");
+    } else {
+      // Hide navbar
+      navbar.classList.add("hidden");
+      navToggle.classList.add("visible");
+    }
+  }
+
+  // Add click event to minimize and toggle buttons
+  minimizeBtn.addEventListener("click", toggleNavbar);
+  navToggle.addEventListener("click", toggleNavbar);
 
   // Open modal
   categoriesBtn.addEventListener("click", () => {
