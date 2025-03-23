@@ -2,7 +2,7 @@
 endblock %} {% block extra_styles %}
 <link
   rel="stylesheet"
-  href="{{ url_for('static', filename='css/leaderboard.css') }}"
+  href="{{ url_for('static', filename='css/user/leaderboard.css') }}"
 />
 <!-- Add Font Awesome for icons -->
 <link
@@ -129,5 +129,5 @@ endblock %} {% block extra_styles %}
 </div>
 
 {% block extra_scripts %}
-<script src="{{ url_for('static', filename='js/leaderboard.js') }}"></script>
+<script src="{{ url_for('static', filename='js/user/leaderboard.js') }}"></script>
 {% endblock %} {% endblock %}

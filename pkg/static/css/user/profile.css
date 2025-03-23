@@ -91,6 +91,14 @@
   margin-bottom: 1rem;
 }
 
+.unique-username {
+  font-size: 1rem;
+}
+
+.unique-username b {
+  color: var(--accent-color);
+}
+
 .gem-container {
   margin: 15px 0;
   perspective: 1000px;

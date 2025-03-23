@@ -14,6 +14,8 @@ def create_app():
     from pkg.routes.home import home
     from pkg.routes.articlepage import articlepage
     from pkg.routes.chart import chart
+    from pkg.routes.admin import admin_home
+    from pkg.routes.admin import platform_analytics
 
 
     app = Flask(__name__, instance_relative_config=True, static_folder='static', template_folder='templates')
@@ -29,4 +31,6 @@ def create_app():
     app.register_blueprint(home)
     app.register_blueprint(articlepage)
     app.register_blueprint(chart)
+    app.register_blueprint(admin_home)
+    app.register_blueprint(platform_analytics)
     return app

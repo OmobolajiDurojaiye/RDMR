@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %} Readmire Super Admin {% endblock %}</title>
+
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- Custom CSS -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/admin/adminbase.css') }}"
+    />
+
+    {% block extra_style %} {% endblock %}
+  </head>
+  <body>
+    <div class="admin-container">
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <div class="logo">
+          <img
+            src="{{ url_for('static', filename='images/logo.png') }}"
+            alt="Readmire Logo"
+          />
+          <h2>Readmire</h2>
+        </div>
+
+        <div class="nav-links">
+          <a href="/admin/" class="nav-link">
+            <i class="fas fa-chart-line"></i>
+            <span>Dashboard</span>
+          </a>
+          <a href="/platform-analytics" class="nav-link">
+            <i class="fas fa-chart-pie"></i>
+            <span>Platform Analytics</span>
+          </a>
+          <a href="#" class="nav-link">
+            <i class="fas fa-users"></i>
+            <span>User Management</span>
+          </a>
+          <a href="#" class="nav-link">
+            <i class="fas fa-pen-fancy"></i>
+            <span>Writer Management</span>
+          </a>
+          <a href="#" class="nav-link">
+            <i class="fas fa-shield-alt"></i>
+            <span>Technical & Moderator</span>
+          </a>
+          <a href="#" class="nav-link">
+            <i class="fas fa-newspaper"></i>
+            <span>Article Control</span>
+          </a>
+          <a href="#" class="nav-link">
+            <i class="fas fa-bug"></i>
+            <span>Bug & Report Overview</span>
+          </a>
+        </div>
+
+        <div class="admin-info">
+          <div class="admin-avatar">
+            <img
+              src="{{ url_for('static', filename='images/admin-avatar.png') }}"
+              alt="Admin Avatar"
+            />
+          </div>
+          <div class="admin-details">
+            <h4>Super Admin</h4>
+            <p>Bolaji</p>
+          </div>
+          <a href="#" class="logout-btn">
+            <i class="fas fa-sign-out-alt"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="main-content">
+        <div class="top-bar">
+          <div class="search-bar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search..." />
+          </div>
+
+          <div class="top-bar-actions">
+            <div class="notification">
+              <i class="fas fa-bell"></i>
+              <span class="badge">3</span>
+            </div>
+            <div class="settings">
+              <i class="fas fa-cog"></i>
+            </div>
+          </div>
+        </div>
+
+        {% block content %}
+        <!-- Welcome Section -->
+        <div class="welcome-section">
+          <div class="welcome-text">
+            <h1>
+              Welcome back,
+              <span class="admin-name">Bolaji</span>
+            </h1>
+            <p>Here's what's happening with Readmire today</p>
+          </div>
+          <div class="date-time">
+            <span id="current-date"></span>
+          </div>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="stats-container">
+          <div class="stat-card">
+            <div class="stat-icon users">
+              <i class="fas fa-user-friends"></i>
+            </div>
+            <div class="stat-info">
+              <h3>Total Users</h3>
+              <h2 class="counter" data-target="5824">0</h2>
+              <p>
+                <span class="increase"
+                  ><i class="fas fa-arrow-up"></i> 12%</span
+                >
+                from last month
+              </p>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon writers">
+              <i class="fas fa-pen-nib"></i>
+            </div>
+            <div class="stat-info">
+              <h3>Total Writers</h3>
+              <h2 class="counter" data-target="782">0</h2>
+              <p>
+                <span class="increase"><i class="fas fa-arrow-up"></i> 8%</span>
+                from last month
+              </p>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon articles">
+              <i class="fas fa-newspaper"></i>
+            </div>
+            <div class="stat-info">
+              <h3>Total Articles</h3>
+              <h2 class="counter" data-target="12453">0</h2>
+              <p>
+                <span class="increase"
+                  ><i class="fas fa-arrow-up"></i> 15%</span
+                >
+                from last month
+              </p>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon comments">
+              <i class="fas fa-comments"></i>
+            </div>
+            <div class="stat-info">
+              <h3>Total Comments</h3>
+              <h2 class="counter" data-target="35892">0</h2>
+              <p>
+                <span class="increase"
+                  ><i class="fas fa-arrow-up"></i> 18%</span
+                >
+                from last month
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Activities & Reports -->
+        <div class="activity-container">
+          <!-- Recent Articles -->
+          <div class="activity-card recent-articles">
+            <div class="card-header">
+              <h3><i class="fas fa-newspaper"></i> Recent Articles</h3>
+              <a href="#" class="view-all">View All</a>
+            </div>
+            <div class="activity-content">
+              <div class="article-item">
+                <div class="article-info">
+                  <h4>The Future of AI in Content Creation</h4>
+                  <p>
+                    By <span class="author">James Wilson</span> • 2 hours ago
+                  </p>
+                </div>
+                <div class="article-stats">
+                  <span><i class="fas fa-eye"></i> 235</span>
+                  <span><i class="fas fa-comment"></i> 18</span>
+                  <span><i class="fas fa-heart"></i> 45</span>
+                </div>
+              </div>
+
+              <div class="article-item">
+                <div class="article-info">
+                  <h4>Cryptocurrency Market Analysis: March 2025</h4>
+                  <p>By <span class="author">Sophia Lee</span> • 5 hours ago</p>
+                </div>
+                <div class="article-stats">
+                  <span><i class="fas fa-eye"></i> 542</span>
+                  <span><i class="fas fa-comment"></i> 32</span>
+                  <span><i class="fas fa-heart"></i> 87</span>
+                </div>
+              </div>
+
+              <div class="article-item">
+                <div class="article-info">
+                  <h4>Web3 Development: Best Practices in 2025</h4>
+                  <p>
+                    By <span class="author">Michael Chen</span> • 8 hours ago
+                  </p>
+                </div>
+                <div class="article-stats">
+                  <span><i class="fas fa-eye"></i> 328</span>
+                  <span><i class="fas fa-comment"></i> 24</span>
+                  <span><i class="fas fa-heart"></i> 56</span>
+                </div>
+              </div>
+
+              <div class="article-item">
+                <div class="article-info">
+                  <h4>Sustainable Technology: Green Innovations</h4>
+                  <p>
+                    By <span class="author">Emma Rodriguez</span> • 12 hours ago
+                  </p>
+                </div>
+                <div class="article-stats">
+                  <span><i class="fas fa-eye"></i> 412</span>
+                  <span><i class="fas fa-comment"></i> 29</span>
+                  <span><i class="fas fa-heart"></i> 73</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bug Reports -->
+          <div class="activity-card bug-reports">
+            <div class="card-header">
+              <h3><i class="fas fa-bug"></i> Recent Bug Reports</h3>
+              <a href="#" class="view-all">View All</a>
+            </div>
+            <div class="activity-content">
+              <div class="bug-item status-critical">
+                <div class="bug-info">
+                  <h4>Comment Section Not Loading on Mobile</h4>
+                  <p>
+                    Reported by <span class="reporter">User23542</span> • 1 hour
+                    ago
+                  </p>
+                </div>
+                <div class="bug-status">
+                  <span class="status critical">Critical</span>
+                </div>
+              </div>
+
+              <div class="bug-item status-high">
+                <div class="bug-info">
+                  <h4>Writer Dashboard Statistics Inaccurate</h4>
+                  <p>
+                    Reported by <span class="reporter">Writer785</span> • 3
+                    hours ago
+                  </p>
+                </div>
+                <div class="bug-status">
+                  <span class="status high">High</span>
+                </div>
+              </div>
+
+              <div class="bug-item status-medium">
+                <div class="bug-info">
+                  <h4>Article Images Not Displaying Correctly</h4>
+                  <p>
+                    Reported by <span class="reporter">User8754</span> • 5 hours
+                    ago
+                  </p>
+                </div>
+                <div class="bug-status">
+                  <span class="status medium">Medium</span>
+                </div>
+              </div>
+
+              <div class="bug-item status-low">
+                <div class="bug-info">
+                  <h4>Minor Typo in Email Notifications</h4>
+                  <p>
+                    Reported by <span class="reporter">Moderator12</span> • 8
+                    hours ago
+                  </p>
+                </div>
+                <div class="bug-status">
+                  <span class="status low">Low</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/admin/adminbase.js') }}"></script>
+  </body>
+</html>

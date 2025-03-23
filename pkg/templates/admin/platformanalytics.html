@@ -1,0 +1,259 @@
+{% extends 'admin/adminbase.html' %} {% block title %} Platform Analytics {%
+endblock %} {% block extra_style %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/admin/platformanalytics.css') }}"
+/>
+{% endblock %} {% block content %}
+<div class="analytics-container">
+  <header class="analytics-header">
+    <h1>Platform Analytics</h1>
+    <div class="date-filter">
+      <button class="date-btn active">Today</button>
+      <button class="date-btn">Week</button>
+      <button class="date-btn">Month</button>
+      <button class="date-btn">Year</button>
+    </div>
+  </header>
+
+  <section class="metrics-grid">
+    <div class="metric-card">
+      <div class="metric-icon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+          <circle cx="9" cy="7" r="4"></circle>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+        </svg>
+      </div>
+      <div class="metric-info">
+        <h3>Total Users</h3>
+        <p class="metric-value">24,892</p>
+        <p class="metric-change positive">+5.3% <span>vs last period</span></p>
+      </div>
+    </div>
+
+    <div class="metric-card">
+      <div class="metric-icon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path
+            d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+          ></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+      </div>
+      <div class="metric-info">
+        <h3>Articles</h3>
+        <p class="metric-value">3,547</p>
+        <p class="metric-change positive">+12.8% <span>vs last period</span></p>
+      </div>
+    </div>
+
+    <div class="metric-card">
+      <div class="metric-icon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path
+            d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+          ></path>
+        </svg>
+      </div>
+      <div class="metric-info">
+        <h3>Comments</h3>
+        <p class="metric-value">18,645</p>
+        <p class="metric-change positive">+8.1% <span>vs last period</span></p>
+      </div>
+    </div>
+
+    <div class="metric-card">
+      <div class="metric-icon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path
+            d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"
+          ></path>
+        </svg>
+      </div>
+      <div class="metric-info">
+        <h3>Engagements</h3>
+        <p class="metric-value">42,308</p>
+        <p class="metric-change negative">-2.4% <span>vs last period</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="analytics-grid">
+    <div class="chart-card wide">
+      <div class="card-header">
+        <h3>User Engagement Trends</h3>
+        <div class="chart-tabs">
+          <button class="chart-tab active">Daily</button>
+          <button class="chart-tab">Weekly</button>
+          <button class="chart-tab">Monthly</button>
+        </div>
+      </div>
+      <div class="chart-container">
+        <p class="chart-placeholder">Chart coming soon</p>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <div class="card-header">
+        <h3>Most Read Articles</h3>
+        <button class="view-all-btn">
+          <a class="view-all-btn" href="">View All</a>
+        </button>
+      </div>
+      <div class="article-list">
+        <div class="article-item">
+          <div class="article-rank">1</div>
+          <div class="article-details">
+            <h4>The Future of Blockchain Technology</h4>
+            <p>1.2k reads • 2 days ago</p>
+          </div>
+        </div>
+        <div class="article-item">
+          <div class="article-rank">2</div>
+          <div class="article-details">
+            <h4>Top 10 Programming Languages in 2025</h4>
+            <p>958 reads • 3 days ago</p>
+          </div>
+        </div>
+        <div class="article-item">
+          <div class="article-rank">3</div>
+          <div class="article-details">
+            <h4>How to Optimize Your Web App Performance</h4>
+            <p>832 reads • 1 week ago</p>
+          </div>
+        </div>
+        <div class="article-item">
+          <div class="article-rank">4</div>
+          <div class="article-details">
+            <h4>AI Revolution: What's Next?</h4>
+            <p>789 reads • 5 days ago</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <div class="card-header">
+        <h3>Most Liked Articles</h3>
+        <button class="view-all-btn">
+          <a class="view-all-btn" href="">View All</a>
+        </button>
+      </div>
+      <div class="article-list">
+        <div class="article-item">
+          <div class="article-rank">1</div>
+          <div class="article-details">
+            <h4>Getting Started with Web3</h4>
+            <p>542 likes • 1 week ago</p>
+          </div>
+        </div>
+        <div class="article-item">
+          <div class="article-rank">2</div>
+          <div class="article-details">
+            <h4>Crypto Market Analysis Q1 2025</h4>
+            <p>487 likes • 3 days ago</p>
+          </div>
+        </div>
+        <div class="article-item">
+          <div class="article-rank">3</div>
+          <div class="article-details">
+            <h4>Modern CSS Techniques</h4>
+            <p>423 likes • 2 weeks ago</p>
+          </div>
+        </div>
+        <div class="article-item">
+          <div class="article-rank">4</div>
+          <div class="article-details">
+            <h4>The Psychology of User Experience</h4>
+            <p>385 likes • 6 days ago</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <div class="card-header">
+        <h3>Bug Tracking</h3>
+      </div>
+      <div class="bug-tracker">
+        <div class="bug-status">
+          <div class="bug-circle">
+            <svg viewBox="0 0 36 36" class="circular-chart">
+              <path
+                class="circle-bg"
+                d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+              <path
+                class="circle"
+                stroke-dasharray="75, 100"
+                d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+              <text x="18" y="20.35" class="percentage">75%</text>
+            </svg>
+          </div>
+          <div class="bug-info">
+            <div class="bug-count">
+              <div class="bug-count-item">
+                <span class="bug-label">Reported</span>
+                <span class="bug-value">124</span>
+              </div>
+              <div class="bug-count-item">
+                <span class="bug-label">Resolved</span>
+                <span class="bug-value">93</span>
+              </div>
+            </div>
+            <div class="bug-progress">
+              <span class="progress-label">Resolution Rate</span>
+              <div class="progress-bar">
+                <div class="progress" style="width: 75%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+{% endblock %}

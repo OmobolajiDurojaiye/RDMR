@@ -1,0 +1,443 @@
+/* Platform Analytics CSS */
+
+:root {
+  --background-color: #0a0a0a;
+  --primary-color: #1a1a1a;
+  --accent-color: #5472e4;
+  --accent-bg: rgba(90, 170, 236, 0.15);
+  --text-color: #ffffff;
+  --accent-bg-rgb: 74, 111, 255;
+  --card-bg: #1a1a1a;
+  --card-hover: #242424;
+  --border-color: #2a2a2a;
+  --positive-color: #4ade80;
+  --negative-color: #f87171;
+  --muted-text: #a0a0a0;
+  --transition: all 0.3s ease;
+}
+
+* {
+  text-decoration: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.analytics-container {
+  padding: 2rem;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.analytics-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.analytics-header h1 {
+  color: var(--text-color);
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.date-filter {
+  display: flex;
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  padding: 0.3rem;
+  border: 1px solid var(--border-color);
+}
+
+.date-btn {
+  background: transparent;
+  color: var(--muted-text);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.date-btn.active {
+  background-color: var(--accent-bg);
+  color: var(--accent-color);
+}
+
+.date-btn:hover:not(.active) {
+  background-color: var(--card-hover);
+  color: var(--text-color);
+}
+
+/* Metrics Grid */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.metric-card {
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+.metric-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  border-color: var(--accent-color);
+}
+
+.metric-icon {
+  width: 48px;
+  height: 48px;
+  background-color: var(--accent-bg);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+}
+
+.metric-icon svg {
+  width: 24px;
+  height: 24px;
+  color: var(--accent-color);
+}
+
+.metric-info h3 {
+  color: var(--muted-text);
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+}
+
+.metric-value {
+  color: var(--text-color);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.metric-change {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.metric-change span {
+  font-weight: 400;
+  color: var(--muted-text);
+}
+
+.positive {
+  color: var(--positive-color);
+}
+
+.negative {
+  color: var(--negative-color);
+}
+
+/* Analytics Grid */
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.chart-card {
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  border-color: var(--accent-color);
+}
+
+.chart-card.wide {
+  grid-column: span 3;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.card-header h3 {
+  color: var(--text-color);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.chart-tabs {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.chart-tab {
+  background: transparent;
+  color: var(--muted-text);
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: var(--transition);
+}
+
+.chart-tab.active {
+  background-color: var(--accent-bg);
+  color: var(--accent-color);
+}
+
+.chart-tab:hover:not(.active) {
+  background-color: var(--card-hover);
+  color: var(--text-color);
+}
+
+.chart-container {
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: linear-gradient(
+    180deg,
+    var(--card-bg) 0%,
+    rgba(26, 26, 26, 0.7) 100%
+  );
+}
+
+.chart-placeholder {
+  color: var(--accent-color);
+  font-size: 1.2rem;
+  font-weight: 500;
+  background-color: var(--accent-bg);
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  border: 1px dashed var(--accent-color);
+}
+
+.view-all-btn {
+  background: transparent;
+  color: var(--accent-color);
+  border: none;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.view-all-btn:hover {
+  text-decoration: underline;
+}
+
+/* Article List */
+.article-list {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.article-item {
+  display: flex;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+.article-item:last-child {
+  border-bottom: none;
+}
+
+.article-item:hover {
+  background-color: var(--card-hover);
+}
+
+.article-rank {
+  background-color: var(--accent-bg);
+  color: var(--accent-color);
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  flex-shrink: 0;
+}
+
+.article-details {
+  overflow: hidden;
+}
+
+.article-details h4 {
+  color: var(--text-color);
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.article-details p {
+  color: var(--muted-text);
+  font-size: 0.8rem;
+}
+
+/* Bug Tracker */
+.bug-tracker {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bug-status {
+  display: flex;
+  align-items: center;
+}
+
+.bug-circle {
+  width: 120px;
+  height: 120px;
+  margin-right: 1.5rem;
+  flex-shrink: 0;
+}
+
+.circular-chart {
+  width: 100%;
+  height: 100%;
+}
+
+.circle-bg {
+  fill: none;
+  stroke: var(--border-color);
+  stroke-width: 3;
+}
+
+.circle {
+  fill: none;
+  stroke: var(--accent-color);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.percentage {
+  fill: var(--text-color);
+  font-size: 0.4em;
+  text-anchor: middle;
+  font-weight: 700;
+}
+
+.bug-info {
+  flex: 1;
+}
+
+.bug-count {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.bug-count-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.bug-label {
+  color: var(--muted-text);
+  font-size: 0.8rem;
+  margin-bottom: 0.2rem;
+}
+
+.bug-value {
+  color: var(--text-color);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.bug-progress {
+  display: flex;
+  flex-direction: column;
+}
+
+.progress-label {
+  color: var(--muted-text);
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.progress-bar {
+  height: 8px;
+  background-color: var(--border-color);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background-color: var(--accent-color);
+  border-radius: 4px;
+  width: 75%;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .analytics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .chart-card.wide {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .analytics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-card.wide {
+    grid-column: span 1;
+  }
+
+  .analytics-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .date-filter {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

@@ -1,12 +1,12 @@
-{% extends 'user/base.html' %} {% block title %}Profile - Rēadmire{% endblock %} {%
-block extra_styles %}
+{% extends 'user/base.html' %} {% block title %}Profile - Rēadmire{% endblock %}
+{% block extra_styles %}
 <link
   rel="stylesheet"
-  href="{{ url_for('static', filename='css/profile.css') }}"
+  href="{{ url_for('static', filename='css/user/profile.css') }}"
 />
 <link
   rel="stylesheet"
-  href="{{ url_for('static', filename='css/stat.css') }}"
+  href="{{ url_for('static', filename='css/user/stat.css') }}"
 />
 <!-- Add Font Awesome for icons -->
 <link
@@ -34,7 +34,10 @@ block extra_styles %}
         />
       </div>
       <div class="user-content">
-        <h2 class="username">Omobolaji Durojaiye</h2>
+        <h2 class="username">
+          Omobolaji Durojaiye
+          <span class="unique-username"><b>@</b>bolaji555</span>
+        </h2>
         <div class="gem-container">
           <div class="gem-banner">
             <div class="gem-glow"></div>
@@ -169,5 +172,5 @@ block extra_styles %}
   </div>
 </div>
 
-<script src="{{ url_for('static', filename='js/profile.js') }}"></script>
+<script src="{{ url_for('static', filename='js/user/profile.js') }}"></script>
 {% endblock %}

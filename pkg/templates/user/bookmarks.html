@@ -1,8 +1,8 @@
-{% extends "user/profileactionbase.html" %} {% block title %}Bookmarks{% endblock %}
-{% block extra_styles %}
+{% extends "user/profileactionbase.html" %} {% block title %}Bookmarks{%
+endblock %} {% block extra_styles %}
 <link
   rel="stylesheet"
-  href="{{ url_for('static', filename='css/bookmarks.css') }}"
+  href="{{ url_for('static', filename='css/user/bookmarks.css') }}"
 />
 <!-- Add Font Awesome for icons -->
 <link
@@ -81,5 +81,5 @@
   </div>
 </div>
 
-<script src="{{ url_for('static', filename='js/bookmark.js') }}"></script>
+<script src="{{ url_for('static', filename='js/user/bookmark.js') }}"></script>
 {% endblock %}

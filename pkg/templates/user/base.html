@@ -6,7 +6,7 @@
     <title>{% block title %}Rēadmire{% endblock %}</title>
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='css/style.css') }}"
+      href="{{ url_for('static', filename='css/user/style.css') }}"
     />
     {% block extra_styles %}{% endblock %}
 
@@ -134,6 +134,6 @@
       </div>
     </div>
 
-    <script src="/static/js/base.js"></script>
+    <script src="{{ url_for('static', filename='js/user/base.js') }}"></script>
   </body>
 </html>
